@@ -13,7 +13,7 @@ export function App(props: any) {
                 <title>Hello from JSX</title>
                 <link rel="stylesheet" href="style.css"/>
                 <script>
-                    let ws = new WebSocket("ws://"+location.host);
+                    let ws = new WebSocket("wss://"+location.host);
                     ws.onmessage = e =&gt; pre.textContent += e.data+"\n"</script>
             </head>
             <body>
