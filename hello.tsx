@@ -83,7 +83,7 @@ async function sayHi() {
     const message = `Hello ${i}`;
     console.log('Sending to all', message);
     sendAll(message);
-    await delay(1000);
+    await delay(10000);
   }
 }
 
