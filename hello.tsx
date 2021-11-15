@@ -22,7 +22,7 @@ channel.onmessage = (e) => {
   sockets.forEach((s) => s.send(e.data));
 };
 
-// sayHi();
+sayHi();
 
 await listenAndServe(":8080", async (r: Request) => {
   try {
@@ -53,7 +53,7 @@ await listenAndServe(":8080", async (r: Request) => {
 });
 
 async function sayHi() {
-  for (let i = 0; i < 200; i++) {
+  for (let i = 0; i < 50; i++) {
     const message = `Hello ${i}`;
     console.log('Sending to all', message);
     sendAll(message);
