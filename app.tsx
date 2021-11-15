@@ -11,15 +11,23 @@ export function App(props: any) {
         <html>
             <head>
                 <title>Hello from JSX</title>
-                <link rel="stylesheet" href="style.css"/>
-                <script>
-                    let ws = new WebSocket("wss://"+location.host);
-                    ws.onmessage = e =&gt; pre.textContent += e.data+"\n"</script>
+                <link rel="stylesheet" href="style.css" />
+                <script src="htmx.min.js"></script>
             </head>
             <body>
                 <h1 class="red">Hello world</h1>
-                <input onkeyup="event.key=='Enter'&amp;&amp;ws.send(this.value)"/>
-                <pre id="pre"></pre>
+
+                <h2>Post</h2>
+                <div hx-ws="connect:/hi">
+                    <div id="test">
+
+                    </div>
+                    <form hx-ws="send:submit">
+                        <input name="chat_message" />
+                        {/* <input type="submit" value="Send"/> */}
+                    </form>
+
+                </div>
             </body>
         </html>
     );
