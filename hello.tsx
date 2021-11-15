@@ -22,23 +22,23 @@ channel.onmessage = (e) => {
   sockets.forEach((s) => s.send(e.data));
 };
 
-sayHi();
+// sayHi();
 
 await listenAndServe(":8080", async (r: Request) => {
   try {
     const { pathname } = new URL(r.url);
 
-  // Check if the request is for style.css.
-  if (pathname.startsWith("/style.css")) {
-    // Read the style.css file from the file system.
-    const file = await Deno.readFile("./style.css");
-    // Respond to the request with the style.css file.
-    return new Response(file, {
-      headers: {
-        "content-type": "text/css",
-      },
-    });
-  }
+    // Check if the request is for style.css.
+    if (pathname.startsWith("/style.css")) {
+      // Read the style.css file from the file system.
+      const file = await Deno.readFile("./style.css");
+      // Respond to the request with the style.css file.
+      return new Response(file, {
+        headers: {
+          "content-type": "text/css",
+        },
+      });
+    }
 
     const { socket, response } = Deno.upgradeWebSocket(r);
 
