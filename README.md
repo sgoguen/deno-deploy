@@ -1,13 +1,11 @@
-# Running Locally
+# fresh project
 
-```bash
-deno run --allow-net=:8080 --unstable --watch --allow-read=. hello.tsx
+### Usage
+
+Start the project:
+
+```
+deno task start
 ```
 
-# Testing Locally
-
-```bash
-deno test --allow-read=. --watch
-```
-
-# deno-deploy
+This will watch the project directory and restart as necessary.
