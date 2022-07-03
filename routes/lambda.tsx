@@ -1,5 +1,6 @@
 /** @jsx h */
 import { h } from "preact";
+import SmartTable from "../components/SmartTable.tsx";
 import WebSlides from "../components/WebSlides.tsx";
 import Counter from '../islands/Counter.tsx';
 
@@ -289,8 +290,11 @@ const countedExpressions = Array.from(
 export default function Lambda() {
     return (
         <WebSlides title="Lambda Functions">
-            <section>
-                <h1>Lambda Functions</h1>
+            <section class="aligncenter">
+                <div class="wrap">
+                    <h2>Lambda Functions</h2>
+
+                </div>
             </section>
             <section>
                 <h1>Common Lambda Functions</h1>
@@ -306,35 +310,4 @@ export default function Lambda() {
             </section>
         </WebSlides>
     );
-}
-
-type FieldType = undefined | null | string | number | boolean;
-type DataTable = Record<string, FieldType>[];
-
-function SmartTable({ data }: { data: DataTable }) {
-    const fieldNames = [...getFieldNames(data)];
-    return (
-        <table className="ui compact collapsing table">
-            <thead>
-                <tr>
-                    {fieldNames.map(name => (
-                        <th class="border" key={name}>{name}</th>
-                    ))}
-                </tr>
-            </thead>
-            <tbody>
-                {data.map((row, i) => (
-                    <tr key={i}>
-                        {fieldNames.map(name => (
-                            <td class="border" key={name}>{row[name]}</td>
-                        ))}
-                    </tr>
-                ))}
-            </tbody>
-        </table>
-    );
-}
-
-function getFieldNames(data: DataTable): Set<string> {
-    return new Set(data.flatMap(r => Object.keys(r)));
 }
